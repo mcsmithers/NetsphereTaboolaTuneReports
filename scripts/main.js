@@ -68,21 +68,11 @@ $(document).ready(function() {
         const account = "tapstone-auto-sc";
         const xmlhttp = new XMLHttpRequest();
         var requestStatus;
-
-        // Setup Taboola so we can make requests
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200 && this.responseText == "success") {
-                console.log('Hooray!  We hit the Taboola request endpoint');
-            } else if (this.readyState == 4 && this.status == 200 && this.responseText != "success") {
-                console.log('Fail!  Smack forehead and try again');
-            }
-        };
-
-        // Get the Taboola data report
-        xmlhttp.open("GET", "https://tapstone.com/tools/includes/taboolaReportStore.php");
-        xmlhttp.send();
-
         var request = "https://tapstone.com/tools/includes/taboolaReportRequest.php?account=" + account;
+
+
+
+        // THE BACKEND IS HARDCODED FOR REPORTS!!! CHANGE ASAP!!!
 
         $.getJSON(request, function(data) {
 
@@ -91,17 +81,9 @@ $(document).ready(function() {
                 taboolaReports = {};
                 taboolaReports.data = [];
 
-                // netsphereData.forEach(function(value, key) {
-                //     const netsphereSubID = value.Subid;
-                //     const revenue = value.Net_Revenue;
-                //     const netsphereDate = value.Date;
-
-                // // Splitting the subid from netsphere to get the subid and offer id for the new table
-                // const splitter = netsphereSubID.split("_");
-                // const subId = splitter[0];
-                // const offerId = splitter[1];
-                console.log("Here's the taboola reports data");
+                console.log("Here's the taboola reports data.  \nTHE BACKEND IS HARDCODED FOR REPORTS DAYS AS PART OF URL!!! CHANGE ASAP!!!");
                 console.log(taboolaReportsData);
+
                 taboolaReportsData.forEach(function(value, key) {
                     const name = value.name;
                     const campaign = value.name;
