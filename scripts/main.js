@@ -1,8 +1,9 @@
 // Document Ready
 $(document).ready(function() {
     /****************************************************
-     *Get the dates set up so ready for the Taboola api
+     *Get the setups ready for the apis
      ****************************************************/
+    // Objects for api data
 
 
     // Setup Date Pickers
@@ -51,43 +52,162 @@ $(document).ready(function() {
     console.log("Original end date is ", endDateString);
 
     const endpoints = {
-        // tuneUrl: 'https://tsh.api.hasoffers.com/Apiv3/json?NetworkToken=NETXqfUQYBBISOBfs6ixG8BeFg5sKe&Target=Report&Method=getStats&fields[]=Stat.offer_id&fields[]=Stat.affiliate_id&fields[]=Affiliate.company&fields[]=Offer.name&fields[]=Stat.date',
-        // netsphereUrl: 'https://tapstone.com/tools/includes/netsphereData.php?startDate=',
-        // start_date_text: "&data_start=",
-        // start_date_val: startDateString,
-        // end_date_text: "&data_end=",
-        // end_date_val: endDateString
+
     };
 
     function buildEndpoint(endpoints) {
-        // const tuneEndpoint = endpoints.tuneUrl + endpoints.start_date_text + endpoints.start_date_val + endpoints.end_date_text + endpoints.end_date_val;
-        // console.log(tuneEndpoint);
-        // return tuneEndpoint;
+
     }
-    // console.log("tuneEndPoint is" + tuneEndpoint);
-
-
-    // Objects for api data
-
 
     /**************************************************** 
      * Get the report data from Taboola
      ******************************************************/
+    var taboolaData;
 
     function runTaboolaUpdates() {
-        console.log("Taboola will run here");
+        const account = "tapstone-auto-sc";
+        const xmlhttp = new XMLHttpRequest();
+        var requestStatus;
 
-        var request = "https://tapstone.com/tools/includes/taboolaCampaignRequest.php?account=tapstone-auto-sc/campaign-summary/dimensions/campaign_breakdown?start_date=2018-06-19&end_date=2018-06-20";
+        // Setup Taboola so we can make requests
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200 && this.responseText == "success") {
+                console.log('Hooray!  We hit the Taboola request endpoint');
+            } else if (this.readyState == 4 && this.status == 200 && this.responseText != "success") {
+                console.log('Fail!  Smack forehead and try again');
+            }
+        };
+
+        // Get the Taboola data report
+        xmlhttp.open("GET", "https://tapstone.com/tools/includes/taboolaReportStore.php");
+        xmlhttp.send();
+
+        var request = "https://tapstone.com/tools/includes/taboolaReportRequest.php?account=" + account;
+
         $.getJSON(request, function(data) {
+
             if (data.response.status == 1) {
-                console.log(data);
-                var msg = 'Request for Taboola Data Failed: ' + data.response.error;
+                taboolaReportsData = data.data.results;
+                taboolaReports = {};
+                taboolaReports.data = [];
+
+                // netsphereData.forEach(function(value, key) {
+                //     const netsphereSubID = value.Subid;
+                //     const revenue = value.Net_Revenue;
+                //     const netsphereDate = value.Date;
+
+                // // Splitting the subid from netsphere to get the subid and offer id for the new table
+                // const splitter = netsphereSubID.split("_");
+                // const subId = splitter[0];
+                // const offerId = splitter[1];
+                console.log("Here's the taboola reports data");
+                console.log(taboolaReportsData);
+                taboolaReportsData.forEach(function(value, key) {
+                    const name = value.name;
+                    const campaign = value.name;
+                    const cost = value.cpc;
+                    const spent = value.spent;
+                    // console.log("taboola stuff");
+                    // console.log(name, campaign, cost, spent);
+
+                    // Splitting the subid from netsphere to get the subid and offer id for the new table
+                    // const underscoreSplitter = name.split("_");
+                    // const spaceSplitter = name.split(" ");
+                    // const offerId = underscoreSplitter[0];
+                    // const affiliateId = underscoreSplitter[1];
+                    // console.log(offerId);
+                    // console.log(affiliateId);
+
+
+                    // const entryTest = objectExists(offerID);
+                    // if (entryTest > -1) {
+                    //     const entryData = new Object();
+                    //     entryData.offer = offer;
+                    //     console.log(entryData)
+                    //     taboola.data[entryTest].data.push(entryData);
+                    // } else {
+                    //     const entry = new Object();
+                    //     entry.offer = offer;
+                    //     entry.affiliate = affiliate;
+                    //     entry.affiliateID_offerID = affiliateID_offerID;
+                    //     entry.taboolaDate = taboolaDate;
+
+                    //     const entryData = new Object();
+                    //     taboola.data.push(entry);
+                    // }
+                });
+
+            } else {
+                var msg = 'Request for Taboola data has failed';
                 console.log("Error: " + msg);
+                addError(msg);
             }
         });
 
+        // Get the Taboola data for campaigns
+        xmlhttp.open("GET", "https://tapstone.com/tools/includes/taboolaCampaignStore.php");
+        xmlhttp.send();
 
+        var request = "https://tapstone.com/tools/includes/taboolaCampaignRequest.php?account=" + account;
+
+        $.getJSON(request, function(data) {
+
+            if (data.response.status == 1) {
+                taboolaCampaignsData = data.data.results;
+                taboolaCampaigns = {};
+                taboolaCampaigns.data = [];
+
+                // netsphereData.forEach(function(value, key) {
+                //     const netsphereSubID = value.Subid;
+                //     const revenue = value.Net_Revenue;
+                //     const netsphereDate = value.Date;
+
+                // // Splitting the subid from netsphere to get the subid and offer id for the new table
+                // const splitter = netsphereSubID.split("_");
+                // const subId = splitter[0];
+                // const offerId = splitter[1];
+                console.log("Here's the taboola campaign data");
+                console.log(taboolaCampaignsData);
+                taboolaCampaignsData.forEach(function(value, key) {
+                    const name = taboolaCampaignsData.name;
+                    // console.log("taboola stuff");
+                    // console.log(name, campaign, cost, spent);
+
+                    // Splitting the subid from netsphere to get the subid and offer id for the new table
+                    // const underscoreSplitter = name.split("_");
+                    // const spaceSplitter = name.split(" ");
+                    // const offerId = underscoreSplitter[0];
+                    // const affiliateId = underscoreSplitter[1];
+                    // console.log(offerId);
+                    // console.log(affiliateId);
+
+
+                    // const entryTest = objectExists(offerID);
+                    // if (entryTest > -1) {
+                    //     const entryData = new Object();
+                    //     entryData.offer = offer;
+                    //     console.log(entryData)
+                    //     taboola.data[entryTest].data.push(entryData);
+                    // } else {
+                    //     const entry = new Object();
+                    //     entry.offer = offer;
+                    //     entry.affiliate = affiliate;
+                    //     entry.affiliateID_offerID = affiliateID_offerID;
+                    //     entry.taboolaDate = taboolaDate;
+
+                    //     const entryData = new Object();
+                    //     taboola.data.push(entry);
+                    // }
+                });
+
+            } else {
+                var msg = 'Request for Taboola data has failed';
+                console.log("Error: " + msg);
+                addError(msg);
+            }
+        });
     }
+
     runTaboolaUpdates();
 
 
@@ -273,6 +393,7 @@ $(document).ready(function() {
 
     // UI error in case API not working
     function addError(msg) {
+        msg = "Well, #$%&, looks like something broke.  Error : " + error;
         $("div.last-update").css({ 'color': 'red', 'font-size': '150%' });
         $("div.last-update").html(msg);
         console.log("Well, #$%&, looks like something broke.  Error : ", error);
