@@ -39,6 +39,12 @@ $(document).ready(function() {
         runTuneUpdates();
     });
 
+    $("#end-date").change(function() {
+        runNetsphereUpdates();
+        runTaboolaUpdates();
+        runTuneUpdates();
+    });
+
 
     /**************************************************** 
      * Get the report data from all APIs
@@ -180,9 +186,9 @@ $(document).ready(function() {
                 }
                 return found;
             }
-            return tune;
             console.log("HasOffers data looks like...");
             console.log(tune);
+            return tune;
         });
         return tune;
     }
@@ -257,7 +263,7 @@ $(document).ready(function() {
      ************************************************************/
     function getObjectKeys() {
         console.log("Keys look like...");
-        console.log(tune);
+        console.log(tune, netsphere, taboola);
     }
     getObjectKeys();
 
