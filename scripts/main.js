@@ -4,9 +4,9 @@ $(document).ready(function() {
      *Get the setups ready for the apis
      ****************************************************/
     // Objects for api data
-    tune = {};
-    netsphere = {};
-    taboola = {};
+    var tune;
+    var netsphere;
+    var taboola;
 
     // Setup Date Pickers
     var today = new Date();
@@ -20,7 +20,7 @@ $(document).ready(function() {
         leftArrow: '<<',
         rightArrow: '>>',
         closeIcon: 'X',
-        endDate: today
+        endDate: yesterday
     });
 
     $('#end-date').fdatepicker({
@@ -64,208 +64,195 @@ $(document).ready(function() {
     console.log("Original start date is ", startDateString);
     console.log("Original end date is ", endDateString);
 
-    /**************************************************** 
-     * Get the report data from Taboola
-     ******************************************************/
+    // /**************************************************** 
+    //  * Get the report data from Netsphere
+    //  ******************************************************/
+    netsphere = {};
+    taboola = {};
+    tune = {};
 
-    function runTaboolaUpdates() {
-        var startDateSelect = $('#start-date').val();
-        var endDateSelect = $('#end-date').val();
-        const account = "tapstone-auto-sc";
-        const xmlhttp = new XMLHttpRequest();
-        var requestStatus;
-        var request = "https://tapstone.com/tools/includes/taboolaReportRequest.php?account=" + account + '&start_date=' + startDateSelect + '&end_date=' + endDateSelect;
+    netsphere.data = [];
+    tune.data = [];
+    taboola.data = [];
 
-        $.getJSON(request, function(data) {
+    // Formatting the dates for this api
+    var startDateSelect = $('#start-date').val();
+    var endDateSelect = $('#end-date').val();
 
-            if (data.response.status == 1) {
-                taboolaReportData = data.data.results;
-                taboola = {};
-                taboola.data = [];
+    const getNetsphere = () => $.ajax({
+        type: "GET",
+        url: "https://tapstone.com/tools/includes/netsphereData.php?startDate=" + startDateSelect + "&endDate=" + endDateSelect,
+        data: {},
+        async: false,
+        dataType: "json"
+    })
 
-                console.log("Taboola report data incoming...");
-                taboolaReportData.forEach(function(value, key) {
-                    const date = value.date;
-                    const campaign = value.campaign;
-                    const name = value.campaign_name;
-                    const clicks = value.clicks;
-                    const actions = value.cpa_actions_num;
-                    const cost = value.cpc;
-                    const spent = value.spent;
-                    const splitter = name.split("_");
-                    const offerId = splitter[0].slice(-4);
-                    const affiliateId = splitter[1];
-                    const entryTest = objectExists(date);
-                    const entry = new Object();
-                    entry.cost = cost;
-                    entry.spent = spent;
-                    entry.date = date;
-                    entry.campaign = campaign;
-                    entry.offerId = offerId;
-                    entry.affiliateId = affiliateId;
-                    entry.clicks = clicks;
-                    entry.actions = actions;
+    getNetsphere()
+        .then(response => {
+            // console.log(response);
+            response.forEach(function(value, key) {
+                const subId = value.Subid;
+                const revenue = value.Net_Revenue;
+                const date = value.Date;
+                // Splitting the subid from netsphere to get the subid and offer id for the new table
+                const splitter = subId.split("_");
+                const affiliateId = splitter[0];
+                const offerId = splitter[1];
+                const entry = new Object();
+                entry.subId = subId;
+                entry.offerId = offerId;
+                entry.affiliateId = affiliateId;
+                entry.date = date;
+                entry.data = [];
+                netsphere.data.push(entry);
+            });
+            console.log("Netsphere data looks like...");
+            console.log(netsphere);
+        })
 
-                    const entryData = new Object();
-                    taboola.data.push(entry);
-                });
-                console.log("Taboola Data looks like...");
-                console.log(taboola);
-                return taboola;
-
-                function objectExists(val) {
-                    var found = -1;
-                    for (var i = 0; i < taboola.data.length; i++) {
-                        if (taboola.data[i].date == val) {
-                            found = i;
-                            break;
-                        }
-                    }
-                    return found;
-                }
-
-            } else {
-                var msg = 'Request for Taboola data has failed';
-                console.log("Error: " + msg);
-                addError(msg);
-            }
-        });
-        return taboola;
-    }
-
-    runTaboolaUpdates();
-
-
-    /**************************************************** 
-     * Get the report data from HasOffers aka Tune
-     ******************************************************/
-    //&start_date=2018-06-18&end_date=2018-06-19
-    function runTuneUpdates() {
-        console.log("HO updates...");
-
-        // Formatting the dates for this api
-        var startDateSelect = $('#start-date').val();
-        var endDateSelect = $('#end-date').val();
-
-        $.ajax({
-            type: "GET",
-            url: "https://tsh.api.hasoffers.com/Apiv3/json?NetworkToken=NETXqfUQYBBISOBfs6ixG8BeFg5sKe&Target=Report&Method=getStats&fields[]=Stat.offer_id&fields[]=Stat.affiliate_id&fields[]=Affiliate.company&fields[]=Offer.name&fields[]=Stat.date",
-            data: {},
-            dataType: "json"
-
-        }).done(function(result) {
-
-            tuneData = result.response.data.data;
-            tune = {};
-            tune.data = [];
-
+    const getTune = () => $.ajax({
+        type: "GET",
+        url: "https://tsh.api.hasoffers.com/Apiv3/json?NetworkToken=NETXqfUQYBBISOBfs6ixG8BeFg5sKe&Target=Report&Method=getStats&fields[]=Stat.offer_id&fields[]=Stat.affiliate_id&fields[]=Affiliate.company&fields[]=Offer.name&fields[]=Stat.date",
+        data: {},
+        async: false,
+        dataType: "json",
+    })
+    getTune()
+        .then(response => {
+            tuneData = response.response.data.data;
             tuneData.forEach(function(value, key) {
                 const offerId = value.Stat.offer_id;
                 const affiliateId = value.Stat.affiliate_id;
                 const affiliate = value.Affiliate.company;
                 const offer = value.Offer.name;
                 const date = value.Stat.date;
-                const entryTest = objectExists(offerId);
                 const entry = new Object();
                 entry.offer = offer;
                 entry.affiliate = affiliate;
                 entry.date = date;
                 entry.affiliateId = affiliateId;
                 entry.offerId = offerId;
-                const entryData = new Object();
                 tune.data.push(entry);
-            });
-
-            function objectExists(val) {
-                var found = -1;
-                for (var i = 0; i < tune.data.length; i++) {
-                    if (tune.data[i].offer == val) {
-                        found = i;
-                        break;
-                    }
-                }
-                return found;
-            }
-            console.log("HasOffers data looks like...");
+            })
+            console.log("Has offer looks like...");
             console.log(tune);
-            return tune;
         });
-        return tune;
-    }
 
-    runTuneUpdates();
+    const account = "tapstone-auto-sc";
+    const xmlhttp = new XMLHttpRequest();
+    var requestStatus;
+    var request = "https://tapstone.com/tools/includes/taboolaReportRequest.php?account=" + account + '&start_date=' + startDateSelect + '&end_date=' + endDateSelect;
 
-    /**************************************************** 
-     * Get the report data from Netsphere
-     ******************************************************/
-    function runNetsphereUpdates() {
-        console.log("Netsphere data incoming...");
-        // Formatting the dates for this api
-        var startDateSelect = $('#start-date').val();
-        var endDateSelect = $('#end-date').val();
-
-        $.ajax({
-            type: "GET",
-            url: "https://tapstone.com/tools/includes/netsphereData.php?startDate=" + startDateSelect + "&endDate=" + endDateSelect,
-            data: {},
-            dataType: "json"
-
-        }).done(function(result) {
-            netsphereData = result;
-            // console.log(netsphereData);
-            netsphere = {};
-            netsphere.data = [];
-
-            netsphereData.forEach(function(value, key) {
-                const subId = value.Subid;
-                const revenue = value.Net_Revenue;
-                const date = value.Date;
-
-                // Splitting the subid from netsphere to get the subid and offer id for the new table
-                const splitter = subId.split("_");
-                const affiliateId = splitter[0];
-                const offerId = splitter[1];
-                const entryTest = objectExists(offerId);
-
+    const getTaboola = () => $.ajax({
+        type: "GET",
+        url: request,
+        data: {},
+        async: false,
+        dataType: "json"
+    })
+    getTaboola()
+        .then(response => {
+            taboolaReportData = response.data.results;
+            // console.log("Taboola report data incoming...");
+            taboolaReportData.forEach(function(value, key) {
+                const date = value.date;
+                const campaign = value.campaign;
+                const name = value.campaign_name;
+                const clicks = value.clicks;
+                const actions = value.cpa_actions_num;
+                const cost = value.cpc;
+                const spent = value.spent;
+                const splitter = name.split("_");
+                const offerId = splitter[0].slice(-4);
+                const affiliateId = splitter[1];
                 const entry = new Object();
-                entry.subId = subId;
+                entry.cost = cost;
+                entry.spent = spent;
+                entry.date = date;
+                entry.campaign = campaign;
                 entry.offerId = offerId;
                 entry.affiliateId = affiliateId;
-                entry.revenue = revenue;
-                entry.date = date;
-                entry.data = [];
-                const entryData = new Object();
-                netsphere.data.push(entry);
-
+                entry.clicks = clicks;
+                entry.actions = actions;
+                entry.name = name;
+                taboola.data.push(entry);
             });
 
-            function objectExists(val) {
-                var found = -1;
-                for (var i = 0; i < netsphere.data.length; i++) {
-                    if (netsphere.data[i].subId == val) {
-                        found = i;
-                        break;
-                    }
-                }
-                return found;
-            }
-            console.log("Netsphere data looks like...");
-            console.log(netsphere);
-            return netsphere;
+            console.log("Taboola Data looks like...");
+            console.log(taboola);
+            mergeTaboolaAndNetsphere();
+            // mergeEverything();
 
-        });
-        return netsphere;
-    }
-    runNetsphereUpdates();
+        })
+
+    var a = taboola.data;
+    var b = netsphere.data;
+    var c = tune.data;
 
     /***********************************************************
-     * Compare the objects and merge them
+     * Mutate the objects to make one bigger object based on matching values
      ************************************************************/
-    function getObjectKeys() {
-        console.log("Keys look like...");
-        console.log(tune, netsphere, taboola);
+
+    function mergeTaboolaAndNetsphere() {
+        var arrResults = _.map(a, function(obj) {
+            return _.assign(obj, _.find(b, {
+                date: obj.date,
+                offerId: obj.offerId,
+                actions: obj.actions,
+                affiliateId: obj.affiliateId,
+                campaign: obj.campaign,
+                cost: obj.cost,
+                spent: obj.spent,
+                subId: obj.subId
+            }));
+        });
+        console.log("Here's the result of netsphere and taboola");
+        console.log(arrResults);
+        mergeTaboolaAndTune();
     }
-    getObjectKeys();
+
+
+    function mergeTaboolaAndTune() {
+        var arrResults2 = _.map(a, function(obj) {
+            return _.assign(obj, _.find(c, {
+                date: obj.date,
+                offerId: obj.offerId,
+                subId: obj.subId,
+                affiliate: obj.affiliate,
+                offer: obj.offer,
+                actions: obj.actions,
+                affiliateId: obj.affiliateId,
+                campaign: obj.campaign,
+                cost: obj.cost,
+                name: obj.name,
+                spent: obj.spent
+            }));
+        });
+        console.log("Here's the result of tune and taboola");
+        console.log(arrResults2);
+        mergeEverything();
+    }
+
+    function mergeEverything() {
+        var data = {};
+        // var data = _.map(arrResults, function(obj) {
+        //     return _.assign(obj, _.find(arrResults2, {
+        //         date: obj.date,
+        //         offerId: obj.offerId,
+        //         actions: obj.actions,
+        //         affiliateId: obj.affiliateId,
+        //         campaign: obj.campaign,
+        //         cost: obj.cost,
+        //         spent: obj.spent,
+        //         subId: obj.subId,
+        //         offerId: obj.offerId,
+        //         affiliate: obj.affiliate,
+        //         offer: obj.offer
+        //     }));
+        console.log("Here's the result of all arrays");
+        console.log(data);
+        buildTable();
+    }
 
 
 
@@ -278,8 +265,8 @@ $(document).ready(function() {
         console.log("Generating a table will happen here");
     }
 
-    var reportTable = buildTable();
+    // var reportTable = buildTable();
 
-    // Foundation fired up for its menu ations
+    // Foundation fired up for its menu actions
     $(document).foundation();
 });
