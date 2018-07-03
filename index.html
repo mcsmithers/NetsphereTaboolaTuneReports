@@ -33,9 +33,6 @@
     <script src="https://tapstone.com/tools/js/foundation-datepicker.min.js"></script>
     <script src="https://tapstone.com/tools/js/vendor/what-input.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.1.0/lodash.min.js"></script>
-
-
-    <!-- <script src="https://tapstone.com/tools/TaboolaHourly/scripts/main.js"></script> -->
     <script src="./scripts/main.js"></script>
 
 </head>
@@ -64,7 +61,7 @@
                         <a href="https://tapstone.com/tools/">Tools</a>
                         <ul class="menu vertical">
                             <li><a href="https://tapstone.com/tools/DoubleDateDashboard/">Double Date Dashboard</a></li>
-                            <!-- <li><a href="https://tapstone.com/tools/AffSub/">Aff Sub Report</a></li> -->
+                            <li><a href="https://tapstone.com/tools/AffSub/">Aff Sub Report</a></li>
                             <li><a href="https://tapstone.com/tools/FeedReport/">Feed Report</a></li>
                             <li><a href="https://tapstone.com/tools/NetsphereReport/">Netsphere Report</a></li>
                             <li><a href="https://tapstone.com/tools/PayoutRevEdit/">Payout & Revenue Editor</a></li>
@@ -88,7 +85,9 @@
                 <div class="callout">
                     <h3>HasOffers, Netsphere, and Taboola Reporting</h3>
                     <p>Make reports for a chosen range of dates.</p>
-                    <div class="last-update"></div>
+                    <p>Netsphere Ready?
+                        <div id="netsphereStatus"></div>
+                    </p>
                 </div>
             </div>
         </div>
@@ -122,6 +121,7 @@
                             <th width="0%">Revenue</th>
                             <th width="0%">Profit</th>
                             <th width="0%">Profit Margin</th>
+                            <th width="0%">CPC</th>
                             <th width="0%">RPC</th>
                             <th width="0%">RPA</th>
                             <th width="0%">Campaign Name</th>
@@ -134,10 +134,11 @@
                         <tr>
                             <th width="30%">Dates</th>
                             <th width="15%">AffiliateID_OfferID</th>
-                            <th width="0%">Cost</th> -->
+                            <th width="0%">Cost</th>
                             <th width="0%">Revenue</th>
                             <th width="0%">Profit</th>
                             <th width="0%">Profit Margin</th>
+                            <th width="0%">CPC</th>
                             <th width="0%">RPC</th>
                             <th width="0%">RPA</th>
                             <th width="0%">Campaign Name</th>

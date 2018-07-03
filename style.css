@@ -145,3 +145,13 @@ ul.pagination li {
     background-color: blue;
     color: white;
 }
+
+#readyImg {
+    height: 100px;
+    width: 100px;
+}
+
+#notReadyImg {
+    height: 100px;
+    width: 100px;
+}
