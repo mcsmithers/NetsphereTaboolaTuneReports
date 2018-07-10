@@ -105,53 +105,32 @@ ul.pagination li {
     margin: 3px 0 5px 10px;
 }
 
-.inputCell {
-    padding: 0 10px;
-}
-
-.inputCell input {
-    margin: 0;
-    height: 30px;
-}
-
-.inputCell .ok {
-    color: #0a0;
-}
-
-.inputCell .fail {
-    color: #c00;
-}
-
-.inputCell input:focus {
-    border: solid 2px #0be;
-    box-shadow: 1px 1px 6px rgba(0, 0, 0, .3);
-    background-color: #f5feff;
-}
-
-.inputLoader {
-    width: 26px;
-    height: 26px;
-    margin: -28px 2px 0;
-    float: right;
-    background-image: url(/tools/images/loader_120x120.gif);
-    background-size: cover;
-}
-
 .timeAdjustment {
     font-weight: bold;
 }
 
 .exportCsvButton {
-    background-color: blue;
     color: white;
 }
 
-#readyImg {
-    height: 100px;
-    width: 100px;
+td.details-control {
+    cursor: pointer;
 }
 
-#notReadyImg {
-    height: 100px;
-    width: 100px;
+tr.shown td.details-control {
+    cursor: pointer;
+}
+
+button.button-expandable {
+    border-radius: 50%;
+    border: black solid 2px;
+    color: #85b6d2;
+    padding: 2px;
+}
+
+i.fi-arrows-expand {
+    border-radius: 50%;
+    border: black solid 2px;
+    color: #85b6d2;
+    padding: 2px;
 }
