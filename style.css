@@ -134,3 +134,7 @@ i.fi-arrows-expand {
     color: #85b6d2;
     padding: 2px;
 }
+
+div.dt-buttons {
+    float: right;
+}
