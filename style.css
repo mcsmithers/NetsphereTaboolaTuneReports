@@ -7,13 +7,14 @@
 #table-buttons {
     text-align: right;
     padding: 5px 0;
-    border: solid 1px #ccc;
+    border: solid 1px #85b6d2;
     margin: 10px 0;
 }
 
-#table-buttons a {
+
+/* #table-buttons a {
     margin: 0 5px;
-}
+} */
 
 .dataTable td,
 .dataTable th {
@@ -24,7 +25,7 @@
     font-size: 11px;
     color: #fff;
     background: rgba(0, 0, 0, .2);
-    padding: 1px 4px 2px;
+    padding: 1px 2px 2px;
     border-radius: 6px;
     margin: 0 0 0 2px;
 }
@@ -109,10 +110,6 @@ ul.pagination li {
     font-weight: bold;
 }
 
-.exportCsvButton {
-    color: white;
-}
-
 td.details-control {
     cursor: pointer;
 }
@@ -121,20 +118,10 @@ tr.shown td.details-control {
     cursor: pointer;
 }
 
-button.button-expandable {
-    border-radius: 50%;
-    border: black solid 2px;
-    color: #85b6d2;
-    padding: 2px;
-}
-
-i.fi-arrows-expand {
-    border-radius: 50%;
-    border: black solid 2px;
-    color: #85b6d2;
-    padding: 2px;
-}
-
 div.dt-buttons {
     float: right;
+}
+
+#report-table_wrapper {
+    padding: 2px;
 }
