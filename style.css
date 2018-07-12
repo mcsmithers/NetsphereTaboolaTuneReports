@@ -1,18 +1,20 @@
-#barLogo {
-    max-width: 160px;
-    vertical-align: text-top;
-    padding: 0 0 0 10px;
-}
-
-#table-buttons {
+#tableButtons {
     text-align: right;
-    padding: 5px 0;
-    border: solid 1px #85b6d2;
-    margin: 10px 0;
+    /* padding: 5px 0; */
+    border: solid 1px powderblue;
+    /* margin: 10px 0; */
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: right;
+}
+
+.clear {
+    clear: both;
 }
 
 
-/* #table-buttons a {
+/* #tableButtons a {
     margin: 0 5px;
 } */
 
@@ -25,7 +27,7 @@
     font-size: 11px;
     color: #fff;
     background: rgba(0, 0, 0, .2);
-    padding: 1px 2px 2px;
+    padding: 1px 4px 2px;
     border-radius: 6px;
     margin: 0 0 0 2px;
 }
@@ -106,22 +108,60 @@ ul.pagination li {
     margin: 3px 0 5px 10px;
 }
 
+.inputCell {
+    padding: 0 10px;
+}
+
+.inputCell input {
+    margin: 0;
+    height: 30px;
+}
+
+.inputCell .ok {
+    color: #0a0;
+}
+
+.inputCell .fail {
+    color: #c00;
+}
+
+.inputCell input:focus {
+    border: solid 2px #0be;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, .3);
+    background-color: #f5feff;
+}
+
+.inputLoader {
+    width: 26px;
+    height: 26px;
+    margin: -28px 2px 0;
+    float: right;
+    background-image: url(../images/loader_120x120.gif);
+    background-size: cover;
+}
+
 .timeAdjustment {
     font-weight: bold;
 }
 
-td.details-control {
-    cursor: pointer;
+.tableDate,
+.tableDate tbody {
+    border: none;
 }
 
-tr.shown td.details-control {
-    cursor: pointer;
+.tableDate td {
+    padding: 0;
 }
 
-div.dt-buttons {
-    float: right;
+.tableDate label {
+    padding-right: 20px;
 }
 
-#report-table_wrapper {
-    padding: 2px;
+.inputCell .mapping {
+    min-width: 100px;
+    max-width: 120px;
+}
+
+#table-buttons {
+    margin-right: 10px;
 }
