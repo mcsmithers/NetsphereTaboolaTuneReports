@@ -1,0 +1,182 @@
+.dt-buttons button:last-of-type {
+    margin-right: 0;
+}
+
+#tableButtons {
+    text-align: right;
+    padding: 5px 0;
+    border: solid 1px powderblue;
+    margin: 10px 0;
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+#tableButtons a {
+    margin: 0 5px;
+}
+
+.dataTable td,
+.dataTable th {
+    font-size: 12px;
+}
+
+.dataTable .dateRange {
+    font-size: 11px;
+    color: #fff;
+    background: rgba(0, 0, 0, .2);
+    padding: 1px 4px 2px;
+    border-radius: 6px;
+    margin: 0 0 0 2px;
+}
+
+.dataTable .dateRange::after {
+    content: "d";
+}
+
+.dataTable th.c0,
+.dataTable td.c0 {
+    background: rgba(200, 255, 200, .20);
+}
+
+.dataTable th.c1,
+.dataTable td.c1 {
+    background: rgba(255, 230, 180, .20);
+}
+
+.dataTable th.c2,
+.dataTable td.c2 {
+    background: rgba(200, 200, 255, .20);
+}
+
+.dataTable th.c3,
+.dataTable td.c3 {
+    background: rgba(255, 180, 180, .20);
+}
+
+.dataTable th {
+    padding-right: 1.1rem;
+}
+
+.dataTable tr.selected {
+    background-color: #bbb !important;
+}
+
+input[type="text"][disabled] {
+    background: #f0f0f0;
+}
+
+ul.pagination li a,
+ul.pagination li {
+    height: 1.7rem;
+}
+
+.buttons-columnVisibility {
+    background: #bbb;
+    color: #fff;
+}
+
+.buttons-columnVisibility.active {
+    background: #e7e7e7;
+    color: #555;
+}
+
+.buttons-columnVisibility:hover {
+    background: #bbb;
+    color: #eee;
+}
+
+.button.iconButton i {
+    position: absolute;
+    font-size: 22px;
+    margin-top: -5px;
+    margin-left: -26px;
+}
+
+.button.iconButton {
+    padding-left: 38px;
+}
+
+.dropdown-pane {
+    background-color: #aaa;
+    border: none;
+}
+
+#errorContainer .callout p {
+    margin: 3px 0 5px 10px;
+}
+
+.tableDate,
+.tableDate tbody {
+    border: none;
+}
+
+.tableDate td {
+    padding: 0;
+}
+
+.tableDate label {
+    padding-right: 20px;
+}
+
+button.radius,
+.button.radius {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.sm .btn-label {
+    left: -10px;
+    border-radius: 2px 0 0 2px;
+    padding-top: 0.39rem;
+    padding-right: 0.45rem;
+    padding-bottom: 0.41rem;
+    padding-left: 0.45rem;
+}
+
+.sm {
+    font-size: 0.8325rem;
+    padding-right: 0.65rem;
+    padding-left: 0.65rem;
+}
+
+button,
+.button {
+    cursor: pointer;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    padding-top: 0.6rem;
+    padding-right: 1rem;
+    padding-bottom: 0.6rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+    background-color: #0079a1;
+    color: white;
+    outline: 0;
+    /* Added for removing the outline border */
+}
+
+.sm .btn-label {
+    left: -10px;
+    border-radius: 2px 0 0 2px;
+    padding-top: 0.39rem;
+    padding-right: 0.45rem;
+    padding-bottom: 0.41rem;
+    padding-left: 0.45rem;
+}
