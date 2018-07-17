@@ -1,26 +1,3 @@
-.dt-buttons button:last-of-type {
-    margin-right: 0;
-}
-
-#tableButtons {
-    text-align: right;
-    padding: 5px 0;
-    border: solid 1px powderblue;
-    margin: 10px 0;
-}
-
-.dataTables_wrapper .dt-buttons {
-    float: right;
-}
-
-.clear {
-    clear: both;
-}
-
-#tableButtons a {
-    margin: 0 5px;
-}
-
 .dataTable td,
 .dataTable th {
     font-size: 12px;
@@ -64,7 +41,7 @@
 }
 
 .dataTable tr.selected {
-    background-color: #bbb !important;
+    background-color: #85b6d2 !important;
 }
 
 input[type="text"][disabled] {
@@ -143,40 +120,4 @@ button.radius,
     font-size: 0.8325rem;
     padding-right: 0.65rem;
     padding-left: 0.65rem;
-}
-
-button,
-.button {
-    cursor: pointer;
-    font-weight: normal;
-    line-height: normal;
-    margin: 0 0 1.25rem;
-    position: relative;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-    padding-top: 0.6rem;
-    padding-right: 1rem;
-    padding-bottom: 0.6rem;
-    padding-left: 1rem;
-    font-size: 0.9rem;
-}
-
-button:hover,
-button:focus,
-.button:hover,
-.button:focus {
-    background-color: #0079a1;
-    color: white;
-    outline: 0;
-    /* Added for removing the outline border */
-}
-
-.sm .btn-label {
-    left: -10px;
-    border-radius: 2px 0 0 2px;
-    padding-top: 0.39rem;
-    padding-right: 0.45rem;
-    padding-bottom: 0.41rem;
-    padding-left: 0.45rem;
 }
