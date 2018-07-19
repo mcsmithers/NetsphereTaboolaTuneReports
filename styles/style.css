@@ -125,3 +125,7 @@ button.radius,
 .dateCol {
     white-space: nowrap;
 }
+
+.group {
+    display: none;
+}
