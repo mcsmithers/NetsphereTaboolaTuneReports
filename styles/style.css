@@ -126,10 +126,26 @@ button.radius,
     white-space: nowrap;
 }
 
-/* tr.group {
-    display: none;
-} */
+.button-group {
+    float: right;
+}
+
+.button-group .button {
+    margin: 0;
+    margin-right: 5px;
+    /* margin-bottom: 1px; */
+    font-size: 0.9rem;
+}
 
 .group {
     display: none;
 } 
+
+#report-table_filter, #dataTables_length {
+    margin-bottom: 2px;
+}
+
+#date-pickers {
+    margin: 0;
+    padding: 0;
+}

@@ -2,3 +2,4 @@
 *.php
 cypress
 scripts/main.js
+.history
