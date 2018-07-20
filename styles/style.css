@@ -126,6 +126,10 @@ button.radius,
     white-space: nowrap;
 }
 
+/* tr.group {
+    display: none;
+} */
+
 .group {
     display: none;
-}
+} 
