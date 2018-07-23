@@ -139,13 +139,30 @@ button.radius,
 
 .group {
     display: none;
-} 
-
-#report-table_filter, #dataTables_length {
-    margin-bottom: 2px;
 }
 
 #date-pickers {
     margin: 0;
     padding: 0;
 }
+
+#start-date {
+    display: inline;
+    /* float: left; */
+}
+#end-date {
+    display: inline;
+    /* float: left; */
+}
+
+button.showSummary {
+    background-color:#2ba6cb;
+    display: none;
+    border: 1px solid black;
+    border-radius: 50%; 
+    margin-right: 5px;
+  }
+  
+  .dateCol{
+      white-space: nowrap;
+  }
