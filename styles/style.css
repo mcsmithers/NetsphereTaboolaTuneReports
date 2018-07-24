@@ -151,6 +151,7 @@ button.radius,
     float: left;
     width: 50%;
 }
+
 #end-date {
     display: inline;
     float: left;
@@ -158,14 +159,23 @@ button.radius,
 }
 
 button.showSummary {
-    background-color:#2ba6cb;
+    background-color: #2ba6cb;
     display: none;
-    padding:6px;
-    border: 1px solid black;
-    border-radius: 50%; 
+    padding: 5px;
+    /* border: 1px solid black; */
+    border-radius: 50%;
     margin-right: 5px;
-  }
-  
-  .dateCol{
-      white-space: nowrap;
-  }
+    cursor: pointer;
+}
+
+.dateCol {
+    white-space: nowrap;
+}
+
+
+i.fi-plus:hover {
+    background-color: transparent;
+    transform: rotate(90deg);
+    cursor: pointer;
+    box-shadow: none;
+}
