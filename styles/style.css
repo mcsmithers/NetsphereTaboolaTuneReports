@@ -148,16 +148,19 @@ button.radius,
 
 #start-date {
     display: inline;
-    /* float: left; */
+    float: left;
+    width: 50%;
 }
 #end-date {
     display: inline;
-    /* float: left; */
+    float: left;
+    width: 50%;
 }
 
 button.showSummary {
     background-color:#2ba6cb;
     display: none;
+    padding:6px;
     border: 1px solid black;
     border-radius: 50%; 
     margin-right: 5px;
