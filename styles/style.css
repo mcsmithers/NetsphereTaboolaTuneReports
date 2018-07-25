@@ -84,9 +84,16 @@ ul.pagination li {
     border: none;
 }
 
-#errorContainer .callout p {
-    margin: 3px 0 5px 10px;
+#errorContainer {
+    margin: 3px 5px 5px 10px;
+    display: none;
 }
+
+#error-box {
+    margin: 3px 5px 5px 10px;
+    display: none;
+}
+
 
 .tableDate,
 .tableDate tbody {
@@ -97,7 +104,7 @@ ul.pagination li {
     padding: 0;
 }
 
-.tableDate label {
+label {
     padding-right: 20px;
 }
 
@@ -128,6 +135,7 @@ button.radius,
 
 .button-group {
     float: right;
+    margin-right: 20px;
 }
 
 .button-group .button {
@@ -147,16 +155,28 @@ button.radius,
     padding: 0;
 }
 
+#start-date-box {
+    display: inline-block;
+    /* width: 50%; */
+    /* border: fuchsia solid 1px; */
+}
+
+#end-date-box {
+    display: inline-block;
+    /* width: 50%; */
+    /* border: fuchsia solid 1px; */
+
+}
+
 #start-date {
-    display: inline;
-    float: left;
-    width: 50%;
+    display: inline-block;
+    /* width: 50%; */
+
 }
 
 #end-date {
-    display: inline;
-    float: left;
-    width: 50%;
+    display: inline-block;
+    /* width: 50%; */
 }
 
 button.showSummary {
