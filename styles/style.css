@@ -139,6 +139,7 @@ button.radius,
 
 .group {
     display: none;
+    font-weight: bold;
 }
 
 #date-pickers {
@@ -171,7 +172,6 @@ button.showSummary {
 .dateCol {
     white-space: nowrap;
 }
-
 
 i.fi-plus:hover {
     background-color: transparent;
