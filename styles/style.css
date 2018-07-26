@@ -94,7 +94,6 @@ ul.pagination li {
     display: none;
 }
 
-
 .tableDate,
 .tableDate tbody {
     border: none;
@@ -145,10 +144,9 @@ button.radius,
     font-size: 0.9rem;
 }
 
-.group {
-    display: none;
-    font-weight: bold;
-}
+/* .detail-row {
+    display: hidden;
+} */
 
 #date-pickers {
     margin: 0;
@@ -165,13 +163,11 @@ button.radius,
     display: inline-block;
     /* width: 50%; */
     /* border: fuchsia solid 1px; */
-
 }
 
 #start-date {
     display: inline-block;
     /* width: 50%; */
-
 }
 
 #end-date {
@@ -179,23 +175,53 @@ button.radius,
     /* width: 50%; */
 }
 
-button.showSummary {
-    background-color: #2ba6cb;
-    display: none;
+button.hideSummary {
+    background-color: grey;
     padding: 5px;
-    /* border: 1px solid black; */
+    display: none;
     border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+}
+
+button.showDetails {
+    background-color: #2ba6cb;
+    /* display: none; */
+    padding: 7px;
     margin-right: 5px;
     cursor: pointer;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+    border-radius: 50%
 }
 
 .dateCol {
     white-space: nowrap;
 }
 
-i.fi-plus:hover {
-    background-color: transparent;
-    transform: rotate(90deg);
-    cursor: pointer;
-    box-shadow: none;
+tr.detail-row.odd{
+    background-color: lightgray;
+}
+
+
+tr.detail-row.even{
+    background-color: whitesmoke;
+}
+
+tr.group{
+background-color: silver;
 }
