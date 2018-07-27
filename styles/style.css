@@ -144,10 +144,6 @@ button.radius,
     font-size: 0.9rem;
 }
 
-/* .detail-row {
-    display: hidden;
-} */
-
 #date-pickers {
     margin: 0;
     padding: 0;
@@ -175,13 +171,17 @@ button.radius,
     /* width: 50%; */
 }
 
-button.hideSummary {
-    background-color: grey;
-    padding: 5px;
+/* button.hideSummary {
+    font-weight: bold;
+    z-index: 999;
+    background-color: #ff8c00;
+    padding: 11px;
     display: none;
-    border-radius: 50%;
-    margin: 5px;
+    border-radius: 50%/50%;
+    margin-top: -15px;
+    margin-left: 5px;
     cursor: pointer;
+    position: absolute !important;
     -webkit-transition-duration: 1s;
     -moz-transition-duration: 1s;
     -o-transition-duration: 1s;
@@ -190,13 +190,13 @@ button.hideSummary {
     -moz-transition-property: -moz-transform;
     -o-transition-property: -o-transform;
     transition-property: transform;
-}
+} */
 
 button.showDetails {
     background-color: #2ba6cb;
     /* display: none; */
-    padding: 7px;
-    margin-right: 5px;
+    padding: 11px;
+    margin: 5px;
     cursor: pointer;
     -webkit-transition-duration: 1s;
     -moz-transition-duration: 1s;
@@ -209,19 +209,19 @@ button.showDetails {
     border-radius: 50%
 }
 
+button.showDetails:focus {
+    outline: 0;
+}
+
 .dateCol {
     white-space: nowrap;
 }
 
-tr.detail-row.odd{
-    background-color: lightgray;
+tr.detail-row.odd {
+    background-color: #D3D3D3;
 }
 
-
-tr.detail-row.even{
-    background-color: whitesmoke;
+tr.detail-row.even {
+    background-color: #f8f8f8;
 }
 
-tr.group{
-background-color: silver;
-}
