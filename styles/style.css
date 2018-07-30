@@ -195,7 +195,7 @@ button.radius,
 button.showDetails {
     background-color: #2ba6cb;
     /* display: none; */
-    padding: 11px;
+    padding: 7px;
     margin: 5px;
     cursor: pointer;
     -webkit-transition-duration: 1s;
@@ -217,6 +217,10 @@ button.showDetails:focus {
     white-space: nowrap;
 }
 
+.pmCol {
+    white-space: nowrap;
+}
+
 tr.detail-row.odd {
     background-color: #D3D3D3;
 }
@@ -224,4 +228,3 @@ tr.detail-row.odd {
 tr.detail-row.even {
     background-color: #f8f8f8;
 }
-
