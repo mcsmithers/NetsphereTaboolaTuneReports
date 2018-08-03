@@ -3,3 +3,5 @@
 cypress
 scripts/main.js
 .history
+cypress/*
+node_modeules
