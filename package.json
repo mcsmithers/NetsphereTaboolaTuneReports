@@ -11,7 +11,8 @@
     "license": "ISC",
     "devDependencies": {
         "chai": "^4.1.2",
-        "cypress": "^3.0.1",
+        "cypress": "^3.0.3",
+        "nice-try": "^1.0.4",
         "nodemon": "^1.17.5",
         "safer-buffer": "^2.1.2",
         "sinon": "^6.0.0"
@@ -36,6 +37,7 @@
         "log-update": "^2.3.0",
         "mocha": "^5.2.0",
         "p-map": "^1.2.0",
+        "request": "^2.87.0",
         "require": "^2.4.20",
         "rxjs": "^6.2.1",
         "webpack": "^4.12.0"
