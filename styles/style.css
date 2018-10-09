@@ -1,136 +1,3 @@
-.dataTable td,
-.dataTable th {
-    font-size: 12px;
-}
-
-.dataTable .dateRange {
-    font-size: 11px;
-    color: #fff;
-    background: rgba(0, 0, 0, .2);
-    padding: 1px 4px 2px;
-    border-radius: 6px;
-    margin: 0 0 0 2px;
-}
-
-.dataTable .dateRange::after {
-    content: "d";
-}
-
-.dataTable th.c0,
-.dataTable td.c0 {
-    background: rgba(200, 255, 200, .20);
-}
-
-.dataTable th.c1,
-.dataTable td.c1 {
-    background: rgba(255, 230, 180, .20);
-}
-
-.dataTable th.c2,
-.dataTable td.c2 {
-    background: rgba(200, 200, 255, .20);
-}
-
-.dataTable th.c3,
-.dataTable td.c3 {
-    background: rgba(255, 180, 180, .20);
-}
-
-.dataTable th {
-    padding-right: 1.1rem;
-}
-
-.dataTable tr.selected {
-    background-color: #85b6d2 !important;
-}
-
-input[type="text"][disabled] {
-    background: #f0f0f0;
-}
-
-ul.pagination li a,
-ul.pagination li {
-    height: 1.7rem;
-}
-
-.buttons-columnVisibility {
-    background: #bbb;
-    color: #fff;
-}
-
-.buttons-columnVisibility.active {
-    background: #e7e7e7;
-    color: #555;
-}
-
-.buttons-columnVisibility:hover {
-    background: #bbb;
-    color: #eee;
-}
-
-.button.iconButton i {
-    position: absolute;
-    font-size: 22px;
-    margin-top: -5px;
-    margin-left: -26px;
-}
-
-.button.iconButton {
-    padding-left: 38px;
-}
-
-.dropdown-pane {
-    background-color: #aaa;
-    border: none;
-}
-
-#errorContainer {
-    margin: 3px 5px 5px 10px;
-    display: none;
-}
-
-#error-box {
-    margin: 3px 5px 5px 10px;
-    display: none;
-}
-
-.tableDate,
-.tableDate tbody {
-    border: none;
-}
-
-.tableDate td {
-    padding: 0;
-}
-
-label {
-    padding-right: 20px;
-}
-
-button.radius,
-.button.radius {
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-}
-
-.sm .btn-label {
-    left: -10px;
-    border-radius: 2px 0 0 2px;
-    padding-top: 0.39rem;
-    padding-right: 0.45rem;
-    padding-bottom: 0.41rem;
-    padding-left: 0.45rem;
-}
-
-.sm {
-    font-size: 0.8325rem;
-    padding-right: 0.65rem;
-    padding-left: 0.65rem;
-}
-
-.dateCol {
-    white-space: nowrap;
-}
 
 .button-group {
     float: right;
@@ -225,4 +92,22 @@ tr.detail-row.odd {
 
 tr.detail-row.even {
     background-color: white;
+}
+
+#nav a{
+    padding: 3px;
+    margin-right: 10px;
+}
+
+.button-default{
+    float: left;
+    background-color: lightblue;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+#searchbox{
+    max-width: 30%;
+    float: right;
+    padding-right: 
 }
