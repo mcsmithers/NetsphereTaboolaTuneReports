@@ -109,5 +109,10 @@ tr.detail-row.even {
 #searchbox{
     max-width: 30%;
     float: right;
-    padding-right: 
+    padding-right: 10px;
 }
+
+.line-chart
+    {
+        border: 1px solid lightgray;
+    }
