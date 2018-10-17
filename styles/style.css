@@ -1,4 +1,3 @@
-
 .button-group {
     float: right;
     margin-right: 20px;
@@ -38,14 +37,14 @@
     /* width: 50%; */
 }
 
-tr.group{
+tr.group {
     border-bottom: #777 1px solid;
     border-top: #777 1px solid;
     background-color: #ddd !important;
     font-weight: bold;
 }
 
-td.group{
+td.group {
     background-color: lightgray;
     transition: none;
 }
@@ -79,10 +78,11 @@ button.showDetails:focus {
     white-space: nowrap;
 }
 
-tr.detail-row .open{
+tr.detail-row .open {
     transition: none;
 }
-tr.detail-row .close{
+
+tr.detail-row .close {
     transition: none;
 }
 
@@ -94,25 +94,39 @@ tr.detail-row.even {
     background-color: white;
 }
 
-#nav a{
+#nav a {
     padding: 3px;
     margin-right: 10px;
 }
 
-.button-default{
+.button-default {
     float: left;
     background-color: lightblue;
     margin-right: 10px;
     padding: 10px;
 }
 
-#searchbox{
+#searchbox {
     max-width: 30%;
     float: right;
     padding-right: 10px;
 }
 
-.line-chart
-    {
-        border: 1px solid lightgray;
-    }
+.line-chart {
+    border: 1px solid lightgray;
+}
+
+.summary td {
+    font-weight: bold;
+    background-color: lightgrey;
+}
+
+.pagination li:hover{
+    cursor: pointer;
+}
+
+/* #maxRows {
+    max-width: 15%;
+    float: left;
+    padding-right: 10px;
+} */
