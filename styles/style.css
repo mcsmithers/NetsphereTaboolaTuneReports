@@ -130,3 +130,26 @@ tr.detail-row.even {
     float: left;
     padding-right: 10px;
 } */
+
+tr.summary{
+    cursor: pointer;
+}
+
+tr.detail-row .open{
+    transition: none;
+}
+tr.detail-row .close{
+    transition: slide;
+    cursor: none;
+}
+
+tr.detail-row.odd {
+    background-color: #f8f8f8;
+    cursor: none;
+}
+
+tr.detail-row.even {
+    background-color: white;
+    cursor: none;
+}
+
