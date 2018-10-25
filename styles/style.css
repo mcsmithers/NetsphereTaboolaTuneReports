@@ -86,13 +86,13 @@ tr.detail-row .close {
     transition: none;
 }
 
-tr.detail-row.odd {
+/* tr.detail-row.odd {
     background-color: #f8f8f8;
 }
 
 tr.detail-row.even {
     background-color: white;
-}
+} */
 
 #nav a {
     padding: 3px;
@@ -118,38 +118,94 @@ tr.detail-row.even {
 
 .summary td {
     font-weight: bold;
-    background-color: lightgrey;
-}
-
-.pagination li:hover{
+    /* background-color: lightgrey; */
     cursor: pointer;
 }
 
-/* #maxRows {
-    max-width: 15%;
-    float: left;
-    padding-right: 10px;
+.pagination li:hover {
+    cursor: pointer;
+
+}
+
+/* tr.summary{
 } */
 
-tr.summary{
-    cursor: pointer;
-}
-
-tr.detail-row .open{
+tr.detail-row .open {
     transition: none;
 }
-tr.detail-row .close{
-    transition: slide;
-    cursor: none;
+
+tr.detail-row .close {
+    transition: none;
+    cursor: pointer;
 }
 
 tr.detail-row.odd {
     background-color: #f8f8f8;
-    cursor: none;
 }
 
 tr.detail-row.even {
-    background-color: white;
-    cursor: none;
+    background-color: lightcyan;
 }
 
+.loader {
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    height: 5vh;
+    width: 5vh;
+    border: 6px solid rgba(0, 174, 239, 0.2);
+    border-top-color: rgba(0, 174, 239, 0.8);
+    border-radius: 100%;
+    animation: rotation 0.6s infinite linear 0.25s;
+
+    /* the opacity is used to lazyload the spinner, see animation delay */
+    /* this avoid the spinner to be displayed when visible for a very short period of time */
+    opacity: 0;
+}
+
+@keyframes rotation {
+    from {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(359deg);
+    }
+}
+
+/* add different color to child rows - needed css because zebra striping is not applied to
+ info-only tbodies (first table), & row indexing is reset for each tbody (second table), so
+ with only a row + child row, would all end up the same color */
+ #table .tablesorter-childRow td {
+    background: #eee;
+  }
+  #table .tablesorter-childRow:hover td {
+    background: #ddd;
+  }
+  
+  /* Make the primary row stand out */
+  .tablesorter tbody tr.main td {
+    background: #ddd;
+    color:black;
+  }
+  
+  /* dark border to make each tbody distinct */
+  #table tbody tr.main td {
+    border-top: 1px solid #777;
+    /* main row is clickable; toggle sibling/child rows */
+    cursor: pointer;
+  }
+  /* no-sort-tbody style 4b7fb4*/
+  .tablesorter-no-sort-tbody td {
+    background: #497baf;
+    color: #fff;
+  }
+  .tablesorter-no-sort-tbody tr:hover td {
+    color: black;
+  }
