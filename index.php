@@ -25,8 +25,7 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.0.0/css/tableexport.min.css">
   <link rel="stylesheet" href="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.css">
-  <link rel="stylesheet" href="https://mottie.github.io/tablesorter/css/theme.default.css">
-  <link rel="stylesheet" href="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.css">
+  <link rel="stylesheet" href="https://mottie.github.io/tablesorter/css/theme.blue.css">
   <link rel="stylesheet" href="./styles/style.css">
 
   <!-- scripts -->
@@ -54,7 +53,6 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <script src="https://cdn.jsdelivr.net/npm/tablesorter@2.31.0/dist/js/jquery.tablesorter.combined.min.js"></script>
   <!-- tablesorter widgets (optional) -->
   <script src="https://mottie.github.io/tablesorter/js/widgets/widget-sortTbodies.js"></script>
-  <script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
   <!-- and of course the main one -->
   <script src="./scripts/main.js"></script>
 
@@ -116,15 +114,13 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
     </div>
 
     <div class="row" style="width: 100%;">
-      <!-- pager -->
-   
       <div class="large-12 columns">
-
-        <table id="table" class="tablesorter">
+        <div id="table" class="tablesorter paginated">
           <div class="loader">
             <div class="spinner"></div>
           </div>
-        </table>
+        </div>
+
       </div>
     </div>
   </div>
