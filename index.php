@@ -15,8 +15,9 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
 
   <!-- jquery -->
   <!-- <script src="https://tapstone.com/tools/js/vendor/jquery.js"></script> -->
-
+  <script src='https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)'></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
 
   <!-- styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
@@ -24,7 +25,6 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <link rel="stylesheet" href="https://tapstone.com/tools/foundation-icons/foundation-icons.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.0.0/css/tableexport.min.css">
-  <link rel="stylesheet" href="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.css">
   <link rel="stylesheet" href="https://mottie.github.io/tablesorter/css/theme.blue.css">
   <link rel="stylesheet" href="./styles/style.css">
 
@@ -32,14 +32,12 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <!-- Minified version of `es6-promise-auto` -->
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-  <!-- styling from local-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.1.0/lodash.min.js"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js"></script>
   <!-- moar styling and ui stuff -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.1.0/lodash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-  <script src='https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)'></script>
   <!-- d3 crap to draw and export-->
   <script src="https://d3js.org/d3.v5.js"></script>
   <script src="https://d3js.org/d3-collection.v1.min.js"></script>
@@ -116,6 +114,7 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
     <div class="row" style="width: 100%;">
       <div class="large-12 columns">
         <div id="table" class="tablesorter paginated">
+          
           <div class="loader">
             <div class="spinner"></div>
           </div>
