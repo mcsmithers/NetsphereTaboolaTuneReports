@@ -25,14 +25,13 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <link rel="stylesheet" href="https://tapstone.com/tools/foundation-icons/foundation-icons.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.0.0/css/tableexport.min.css">
-  <link rel="stylesheet" href="https://mottie.github.io/tablesorter/css/theme.blue.css">
+  <link rel="stylesheet" href="https://rawgit.com/Mottie/tablesorter/master/css/theme.blue.css">
   <link rel="stylesheet" href="./styles/style.css">
 
   <!-- scripts -->
   <!-- Minified version of `es6-promise-auto` -->
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.1.0/lodash.min.js"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js"></script>
   <!-- moar styling and ui stuff -->
@@ -48,8 +47,10 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
 
   <!-- load jQuery and tablesorter scripts to deal with the sorting and filtering-->
-  <script src="https://cdn.jsdelivr.net/npm/tablesorter@2.31.0/dist/js/jquery.tablesorter.combined.min.js"></script>
-  <!-- tablesorter widgets (optional) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+  <!-- tablesorter widgets -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
+
   <script src="https://mottie.github.io/tablesorter/js/widgets/widget-sortTbodies.js"></script>
   <!-- and of course the main one -->
   <script src="./scripts/main.js"></script>
@@ -113,11 +114,12 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
 
     <div class="row" style="width: 100%;">
       <div class="large-12 columns">
-        <div id="table" class="tablesorter paginated">
-          
-          <div class="loader">
-            <div class="spinner"></div>
-          </div>
+        <div id="table-wrapper">
+          <table id="table" class="tablesorter-blue paginated">
+            <div class="loader">
+              <div class="spinner"></div>
+            </div>
+          </table>
         </div>
 
       </div>

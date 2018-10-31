@@ -197,22 +197,6 @@ tr.detail-row .close {
     color: gray;
 }
 
-
-div.pager {
-    text-align: right;
-    width: 40em;
-    margin: 1em auto;
-}
-
-
-#pager-button {
-    color: black;
-    background: #99bfe6;
-    font-size: 15px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
 #table {
     margin: 5px;
 }
@@ -220,6 +204,25 @@ div.pager {
 #loadcat{
     height: 100px;
     width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#loadpup{
+    height: 100px;
+    width: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#error{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
 #overlay {
@@ -235,3 +238,5 @@ div.pager {
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
 }
+
+
