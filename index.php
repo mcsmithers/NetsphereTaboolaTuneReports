@@ -50,7 +50,7 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
   <!-- tablesorter widgets -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
-
+  <!-- this assists with paginating multiple tbodies-->
   <script src="https://mottie.github.io/tablesorter/js/widgets/widget-sortTbodies.js"></script>
   <!-- and of course the main one -->
   <script src="./scripts/main.js"></script>
@@ -114,12 +114,29 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
 
     <div class="row" style="width: 100%;">
       <div class="large-12 columns">
-        <div id="table-wrapper">
-          <table id="table" class="tablesorter-blue paginated">
+        <div id="table-wrapper"></div>
+          <table id="table" class="tablesorter-blue">
             <div class="loader">
               <div class="spinner"></div>
             </div>
           </table>
+          <div id="buttons">
+          <button class="button" id="first" data-id="first">
+              First Page
+            </button>
+            <button class="button" id="previous-button" data-id="previous">
+              Prev
+            </button>
+            <button class="button" id="next-button" data-id="next">
+              Next 
+            </button>
+            <button class="button" id="last" data-id="last">
+              Last Page
+            </button>   
+            <button id="all-button" class="button hollow" data-id="all">
+              Show All
+            </button>
+          </div>
         </div>
 
       </div>

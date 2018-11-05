@@ -122,10 +122,10 @@ tr.detail-row.even {
     cursor: pointer;
 }
 
-/* .pagination li:hover {
+.pagination li:hover {
     cursor: pointer;
 
-} */
+}
 
 tr.detail-row .open {
     transition: none;
@@ -167,17 +167,7 @@ tr.detail-row .close {
         transform: rotate(359deg);
     }
 }
-
-/* add different color to child rows - needed css because zebra striping is not applied to
- info-only tbodies (first table), & row indexing is reset for each tbody (second table), so
- with only a row + child row, would all end up the same color */
-/* #table .tablesorter-childRow td {
-    background: #eee;
-  }
-  #table .tablesorter-childRow:hover td {
-    background: 	#f2f9eb;
-  }
-  
+ 
   /* Make the primary row stand out */
 .tablesorter tbody tr.summary td {
     background: #d7e5f3;
@@ -210,8 +200,8 @@ tr.detail-row .close {
 }
 
 #loadpup{
-    height: 100px;
-    width: 150px;
+    height: 50px;
+    width: 50px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -239,4 +229,24 @@ tr.detail-row .close {
     cursor: pointer; /* Add a pointer on hover */
 }
 
+#toggle-buttons {
+    margin-left: 5px;
+}
 
+#previous-button{
+    margin-left: 5px;
+}
+
+#next-button{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#last-button{
+    margin-left: 5px;
+}
+
+
+#all-button{
+    margin-left: 5px;
+}
