@@ -25,7 +25,7 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <link rel="stylesheet" href="https://tapstone.com/tools/foundation-icons/foundation-icons.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.0.0/css/tableexport.min.css">
-  <link rel="stylesheet" href="https://rawgit.com/Mottie/tablesorter/master/css/theme.blue.css">
+  <link rel="stylesheet" href="https://rawgit.com/Mottie/tablesorter/master/css/theme.default.css">
   <link rel="stylesheet" href="./styles/style.css">
 
   <!-- scripts -->
@@ -34,8 +34,13 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js"></script>
+  <!-- handling timezone conversions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone-with-data.min.js"></script>
   <!-- moar styling and ui stuff -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+  <!-- cookie madness-->
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
   <!-- d3 crap to draw and export-->
   <script src="https://d3js.org/d3.v5.js"></script>
@@ -115,20 +120,23 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
     <div class="row" style="width: 100%;">
       <div class="large-12 columns">
         <div id="table-wrapper"></div>
-          <table id="table" class="tablesorter-blue">
-            <div class="loader">
-              <div class="spinner"></div>
+        <div class="small-4 large-4 columns" id="search-wrapper">
+                <input class="search" type="search" data-column="any" placeholder="Search...">
             </div>
+          <table id="table" class="tablesorter">
+            <!-- <div class="loader">
+              <div class="spinner"></div>
+            </div> -->
           </table>
           <div id="buttons">
           <button class="button" id="first" data-id="first">
               First Page
             </button>
             <button class="button" id="previous-button" data-id="previous">
-              Prev
+              Prev 25
             </button>
             <button class="button" id="next-button" data-id="next">
-              Next 
+              Next 25
             </button>
             <button class="button" id="last" data-id="last">
               Last Page
