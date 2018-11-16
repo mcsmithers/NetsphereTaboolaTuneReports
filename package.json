@@ -1,5 +1,5 @@
 {
-    "name": "taboolahourly",
+    "name": "yahooReports",
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
@@ -7,7 +7,7 @@
         "test": "mocha",
         "cypress:open": "cypress open"
     },
-    "author": "Chrisitna Smithers",
+    "author": "Christina Smithers",
     "license": "ISC",
     "devDependencies": {
         "chai": "^4.1.2",
@@ -21,6 +21,7 @@
         "babel": "^6.23.0",
         "babel-cli": "^6.26.0",
         "babel-runtime": "^6.26.0",
+        "bootstrap": "^4.1.3",
         "casperjs": "^1.1.4",
         "ci-info": "^1.1.3",
         "cli-truncate": "^1.1.0",
@@ -40,6 +41,8 @@
         "request": "^2.87.0",
         "require": "^2.4.20",
         "rxjs": "^6.2.1",
+        "tableexport": "^5.0.2",
+        "tableexport.jquery.plugin": "file:scripts/tableExport.jquery.plugin",
         "webpack": "^4.12.0"
     }
 }

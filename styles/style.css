@@ -122,11 +122,21 @@ tr.detail-row .close {
         transform: rotate(359deg);
     }
 }
+
+/* make the header freeze */
+/* .tablesorter-headerRow{
+    position: relative;
+      white-space: nowrap;
+} */
+
  
   /* Make the primary row stand out */
 .tablesorter tbody tr.summary td {
-    /* background: #d7e5f3; */
+    background: lightslategray;
     color: black;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+    cursor: pointer;
 }
 
 /* dark border to make each tbody distinct */
@@ -134,7 +144,6 @@ tr.detail-row .close {
     border-top: 1px solid #777;
     border-bottom: 1px solid #777;
     cursor: pointer;
-    
 }
 
 .disabled {
@@ -191,3 +200,5 @@ tr.detail-row .close {
 #all-button{
     margin-left: 5px;
 }
+
+
