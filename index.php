@@ -86,12 +86,13 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
         <div class="callout">
           <h3> HONeY Tool</h3>
           <p>Make reports for a chosen range of dates.</p>
-          <p style="display: inline-block; margin: 5px;">Data ready from Netsphere?
+          <p style="display: inline-block; margin: 5px;">Data ready from Netsphere and OpenMail?
             <div style="display: inline-block; margin: 5px;" id="netsphereStatus"></div>
           </p>
         </div>
       </div>
     </div>
+    
     <div class="row">
       <div class="large-12 columns">
         <div class="callout" id="error-box">
@@ -122,7 +123,7 @@ define("SCRIPT_ROOT", "http://localhost:8000/tools/");
         <div class="small-4 large-4 columns" id="search-wrapper">
           <input class="search" type="search" data-column="any" placeholder="Search...">
         </div>
-        <table id="table" class="tablesorter">
+        <table id="table" class="tablesorter-default">
           <div class="loader">
             <div class="spinner"></div>
           </div>
